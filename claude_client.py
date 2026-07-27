@@ -7,17 +7,13 @@ from utils import extract_json, extract_text
 
 
 def _tool(tool_type: str) -> dict:
+    # Do not pass user_location. Some Anthropic web-search tool versions
+    # reject the AE country code. Dubai/UAE targeting is enforced in the
+    # governed research prompt instead.
     return {
         "type": tool_type,
         "name": "web_search",
         "max_uses": MAX_WEB_SEARCHES,
-        "user_location": {
-            "type": "approximate",
-            "city": "Dubai",
-            "region": "Dubai",
-            "country": "AE",
-            "timezone": "Asia/Dubai",
-        },
     }
 
 

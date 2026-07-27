@@ -29,3 +29,10 @@ available.
 
 StarAI does not call, email, message, post, connect, follow, comment, or submit
 forms. It does not guess private contact details. Human review is mandatory.
+
+
+## Web-search compatibility
+
+This final version intentionally does not pass `user_location` to Anthropic
+web search. Dubai and UAE targeting is controlled through the StarAI prompt.
+This avoids the `Country code AE is not supported` API error.
